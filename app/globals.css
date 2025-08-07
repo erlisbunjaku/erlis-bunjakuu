@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
-*{
-  font-family: Outfit;
+/* globals.css or inside <body> */
+html,
+body {
+  overflow-x: hidden;
 }

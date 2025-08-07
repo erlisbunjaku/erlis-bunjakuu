@@ -8,16 +8,14 @@ const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
 
   const sideMenuRef = useRef();
-   
-  const openMenu = ()=> {
-    sideMenuRef.current.style.transform = 'translateX(-16rem)'
-  }
 
-    const closeMenu = ()=> {
-    sideMenuRef.current.style.transform = 'translateX(16rem)'
-  }
+  const openMenu = () => {
+    sideMenuRef.current.style.transform = "translateX(-16rem)";
+  };
 
-
+  const closeMenu = () => {
+    sideMenuRef.current.style.transform = "translateX(16rem)";
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -31,14 +29,6 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
-        <Image
-          src={assets.header_bg_color}
-          alt="header backgroun"
-          className="w-full"
-        />
-      </div>
-
       <nav
         className={`w-full fixed top-0 left-0 px-5 lg:px-8 xl:px-[8%] py-4 
   flex items-center justify-between z-50 transition-all duration-300 ease-in-out ${
@@ -97,21 +87,45 @@ const Navbar = () => {
 
         {/* -- ----  mobile menu ---- -- */}
 
-        <ul ref={sideMenuRef} className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64
-        top-0 bottom-0 w-64 z-50 h-screen bg-white transition duration-500"
+        <ul
+          ref={sideMenuRef}
+          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-64 z-50 h-screen bg-white 
+  translate-x-full transition-transform duration-500"
         >
-
           <div onClick={closeMenu}>
-            <Image src={assets.close_black} alt="close icon" className="w-5 
-            cursor-pointer absolute right-6 top-6"/>
+            <Image
+              src={assets.close_black}
+              alt="close icon"
+              className="w-5 
+            cursor-pointer absolute right-6 top-6"
+            />
           </div>
 
-          <li><a href="#top" onClick={closeMenu}>Home</a></li>
-          <li><a href="#about" onClick={closeMenu}>Abotu me</a></li>
-          <li><a href="#services" onClick={closeMenu}>Services</a></li>
-          <li><a href="#work" onClick={closeMenu}>My Work</a></li>
-          <li><a href="#contact" onClick={closeMenu}>Contact me</a></li>
-
+          <li>
+            <a href="#top" onClick={closeMenu}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" onClick={closeMenu}>
+              Abotu me
+            </a>
+          </li>
+          <li>
+            <a href="#services" onClick={closeMenu}>
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#work" onClick={closeMenu}>
+              My Work
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={closeMenu}>
+              Contact me
+            </a>
+          </li>
         </ul>
       </nav>
     </>
