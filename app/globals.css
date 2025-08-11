@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* globals.css or inside <body> */
 html,
 body {
   overflow-x: hidden;
