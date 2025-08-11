@@ -1,14 +1,10 @@
-import { Outfit, Ovo, Geist_Mono  } from "next/font/google";
+import { Outfit, Geist_Mono  } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"], weight: ["400", "500", "600", "700"]
 });
 
-
-const ovo = Ovo({
-  subsets: ["latin"], weight: ["400"]
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -24,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.className} ${ovo.className} antialiased leading-8 
+        className={`${outfit.className} antialiased leading-8 
           overflow-x-hidden`}
       >
         {children}
