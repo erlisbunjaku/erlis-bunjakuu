@@ -123,7 +123,7 @@ export const serviceData = [
 ]
 
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js, React Native.' },
+    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Experience', description: 'Front-end Developer at Primeline.dev – 2 years and ongoing' },
     { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Ongoing education in software development & IT.' },
     { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built and deployed 5+ practical projects.' }
 ];
