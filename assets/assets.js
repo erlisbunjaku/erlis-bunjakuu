@@ -85,28 +85,28 @@ export const assets = {
 export const workData = [
     {
         title: 'Dollapi',
-        description: ' E-commerce Web App',
+        description: 'Dollapi is an e-commerce web app for clothing, built with React. I implemented the front-end, including product listings, shopping cart functionality, and a responsive design.',
         bgImage: '/work-1.png',
         link: 'https://dollapi.online/',
         technologies: ["React", "Tailwind"]
     },
     {
         title: 'Shujtiza',
-        description: ' Web & Mobile App',
+        description: 'Shujtiza is a food marketplace app built with Next.js and React Native, connecting users to leftover food at discounted prices. I developed both the web and mobile front-ends.',
         bgImage: '/work-2.png',
         link: '#',
         technologies: ["React Native", "Next.js", "Tailwind"]
     },
     {
         title: 'Pyet Doktorrrin',
-        description: 'Web Application ',
+        description: 'PyetDoktorrin is a web application for connecting patients with doctors for online consultations. I developed the front-end using React, implementing appointment booking and a responsive UI.',
         bgImage: '/work-3.png',
         link: 'https://www.pyetdoktorin.online/',
         technologies: ["React", "Tailwind"]
     },
     {
         title: 'Vushtrria Basket',
-        description: 'Informational Website',
+        description: 'Vushtrria Basket is an informative website about local basketball teams, built with HTML, CSS, and JavaScript. I developed the responsive front-end and structured the content.',
         bgImage: '/work-4.png',
         link: 'https://vushtrriabaskett.netlify.app/',
         technologies: ["HTML5", "CSS3", "JavaScript"]
