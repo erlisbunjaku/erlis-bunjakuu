@@ -29,7 +29,7 @@ const Work = () => {
         initial={{ x: 40, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.4 }}
-        className="text-center max-w-2xl mx-auto mt-3 mb-8 text-gray-600 text-sm leading-relaxed"
+        className="text-center max-w-2xl mx-auto mt-3 mb-8 text-gray-600 text-sm"
       >
         A selection of my recent projects, showcasing skills in modern front-end
         development.
@@ -83,7 +83,7 @@ const Work = () => {
               <h3 className="text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                 {project.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed mt-1">
+              <p className="text-gray-600 text-sm mt-1">
                 {project.description}
               </p>
 
