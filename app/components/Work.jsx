@@ -83,7 +83,7 @@ const Work = () => {
               <h3 className="text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                 {project.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed mt-1 line-clamp-3">
+              <p className="text-gray-600 text-sm leading-relaxed mt-1">
                 {project.description}
               </p>
 
