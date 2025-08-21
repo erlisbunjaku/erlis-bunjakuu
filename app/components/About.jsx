@@ -36,77 +36,85 @@ const About = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex-1"
-        >
-          <motion.p
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-            className="mb-10 max-w-2xl"
-          >
-            I’m passionate about building responsive, user-friendly web and
-            mobile apps with clean, maintainable code. I enjoy solving problems
-            and working closely with teams to create great experiences. I adapt
-            quickly, collaborate well, and believe teamwork makes all the
-            difference whether tackling challenges, sharing ideas, or having
-            fun. Super friendly and always open to connect or collaborate!  &#128513;
-          </motion.p>
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  className="flex-1"
+>
+  {/* Intro Text */}
+  <motion.p
+    initial={{ scale: 0.9, opacity: 0 }}
+    whileInView={{ scale: 1, opacity: 1 }}
+    transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
+    className="mb-6 max-w-2xl text-gray-700 leading-relaxed text-base"
+  >
+    I’m passionate about building responsive, user-friendly web and mobile apps
+    with clean, maintainable code. I enjoy solving problems and working closely
+    with teams to create great experiences. I adapt quickly, collaborate well,
+    and believe teamwork makes all the difference — whether tackling challenges,
+    sharing ideas, or having fun. Super friendly and always open to connect or
+    collaborate! 😁
+  </motion.p>
 
-          <ul
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6
-          max-w-2xl"
-          >
-            {infoList.map(({ icon, iconDark, title, description }, index) => (
-              <motion.li
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1 }}
-                className="border-[0.5px] border-gray-400
-                rounded-xl p-3 cursor-pointer hover:bg-[#fcf4ff]  
-                hover:-translate-y-1 duration-500"
-                key={index}
-              >
-                <Image
-                  src={icon}
-                  alt={title}
-                  className="w-7
-                    mt-3"
-                />
-                <h3
-                  className="my-4 font-semibold
-                    text-gray-700"
-                >
-                  {title}
-                </h3>
-                <p className="text-gray-600 text-sm">{description}</p>
-              </motion.li>
-            ))}
-          </ul>
+  {/* Services / Info List */}
+  <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
+    {infoList.map(({ icon, title, description }, index) => (
+      <motion.li
+        key={index}
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.25, delay: index * 0.05 }}
+        className="
+          group
+          border border-gray-200
+          rounded-xl
+          p-4
+          bg-white
+          shadow-sm
+          hover:shadow-md
+          hover:border-purple-300
+          cursor-pointer
+          transform
+          hover:-translate-y-1
+          transition-all duration-300
+        "
+      >
+        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-purple-50 group-hover:bg-purple-100 transition mb-3">
+          <Image src={icon} alt={title} className="w-5 h-5 object-contain" />
+        </div>
+        <h3 className="text-sm font-semibold text-gray-800 mb-1 group-hover:text-blue-600 transition">
+          {title}
+        </h3>
+        <p className="text-gray-600 text-xs leading-snug">{description}</p>
+      </motion.li>
+    ))}
+  </ul>
 
-          <h4 className="mb-3 text-gray-700">Tools I use</h4>
+  {/* Tools */}
+  <h4 className="mt-6 mb-3 text-gray-800 font-medium">Tools I use</h4>
+  <ul className="flex flex-wrap items-center gap-2 sm:gap-3">
+    {toolsData.map((tool, index) => (
+      <motion.li
+        key={index}
+        whileHover={{ scale: 1.05 }}
+        className="
+          flex items-center justify-center
+          w-10 h-10 sm:w-12 sm:h-12
+          border border-gray-200
+          rounded-lg
+          bg-white
+          shadow-sm
+          cursor-pointer
+          hover:shadow-md
+          transition-all duration-300
+        "
+      >
+        <Image src={tool} alt="tool" className="w-4 sm:w-5" />
+      </motion.li>
+    ))}
+  </ul>
+</motion.div>
 
-          <ul className="flex items-center gap-3 sm:gap-5">
-            {toolsData.map((tool, index) => (
-              <li
-                className="flex items-center justify-center
-                w-12 sm:w-14 aspect-square border border-gray-400 rounded-xl
-                cursor-pointer
-                hover:-translate-y-1 duration-500"
-                key={index}
-              >
-                <Image
-                  src={tool}
-                  alt="tool"
-                  className="
-                    w-5 sm:w-7"
-                />
-              </li>
-            ))}
-          </ul>
-        </motion.div>
       </div>
     </div>
   );

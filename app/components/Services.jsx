@@ -2,6 +2,7 @@ import { assets, serviceData } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Services = () => {
   return (
@@ -39,21 +40,38 @@ const Services = () => {
         transition={{ duration: 0.6 }}
         className="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-6 my-10"
       >
-        {serviceData.map(({ icon, title, description, link }, index) => (
-          <div
-            key={index}
-            className="
-        border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-color[#fcf4ff7]
-        hover:-translate-y-1 duration-500"
-          >
-            <Image alt="Services" src={icon} className="w-10" />
-            <h3 className="text-lg my-4 text-gray-700">{title}</h3>
-            <p className="text-sm text-gray-600 leading-5">{description}</p>
-            <a href={link} className="flex items-center gap-2 text-sm mt-5">
-              Read more{" "}
-              <Image alt="arrow" src={assets.right_arrow} className="w-4" />
-            </a>
-          </div>
+        {serviceData.map(({ icon, title, description,}, index) => (
+      <div
+  key={index}
+  className="
+    group
+    border border-gray-200 
+    rounded-2xl 
+    p-8 
+    bg-white 
+    shadow-sm 
+    hover:shadow-lg 
+    hover:border-purple-300
+    cursor-pointer 
+    transform 
+    hover:-translate-y-2 
+    transition-all 
+    duration-300
+  "
+>
+  <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-purple-50 mb-6 group-hover:bg-purple-100 transition">
+    <Image alt="Services" src={icon} className="w-8 h-8 object-contain" />
+  </div>
+
+  <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600 transition">
+    {title}
+  </h3>
+
+  <p className="text-sm text-gray-600 leading-relaxed">
+    {description}
+  </p>
+</div>
+
         ))}
       </motion.div>
     </div>

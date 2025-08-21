@@ -6,7 +6,6 @@ import edu_icon_dark from './edu-icon-dark.png';
 import project_icon from './project-icon.png';
 import project_icon_dark from './project-icon-dark.png';
 import vscode from './vscode.png';
-import tailwind from './tailwind.svg';
 import expogo from './expogo.png';
 import git from './git.png';
 import github from './github.png';
@@ -38,6 +37,12 @@ import right_arrow from './right-arrow.png';
 import send_icon from './send-icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
+import tailwind from './tailwind.svg';
+import react from './react.svg';
+import nextjs from './next.svg';
+import reactnative from './reactnative.png';
+
+
 
 export const assets = {
     user_image,
@@ -49,6 +54,9 @@ export const assets = {
     project_icon_dark,
     vscode,
     tailwind,
+    react,
+    nextjs,
+    reactnative,
     expogo,
     git,
     github,
@@ -80,7 +88,15 @@ export const assets = {
     send_icon,
     right_arrow_bold,
     right_arrow_bold_dark
+    
 };
+
+export const techLogos = {
+   React: assets.react,
+  "Tailwind": assets.tailwind,
+  "Next.js": assets.nextjs,
+  "React Native": assets.reactnative,
+}
 
 export const workData = [
     {
@@ -104,22 +120,15 @@ export const workData = [
         link: 'https://www.pyetdoktorin.online/',
         technologies: ["React", "Tailwind"]
     },
-    {
-        title: 'Vushtrria Basket',
-        description: 'Vushtrria Basket is an informative website about local basketball teams, built with HTML, CSS, and JavaScript. I developed the responsive front-end and structured the content.',
-        bgImage: '/work-4.png',
-        link: 'https://vushtrriabaskett.netlify.app/',
-        technologies: ["HTML5", "CSS3", "JavaScript"]
-    },
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Website Development', description: 'I build fast, responsive, and modern websites that provide smooth user experiences.', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Building smooth, cross-platform apps for iOS and Android.', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'Crafting simple, modern designs that put the user first, ensuring engaging experiences.', link: '' },
-    { icon: assets.graphics_icon, title: 'Frontend Optimization', description: 'Making interfaces faster, smoother, and more efficient.', link: '' },
-    { icon: assets.component_icon, title: 'Component-Based Development', description: 'Building reusable, modular UI components to speed up development.', link: '' },
-    { icon: assets.api_icon, title: 'API Integration', description: 'Connecting the frontend with backend systems to fetch and display dynamic data.', link: '' },
+    { icon: assets.web_icon, title: 'Website Development', description: 'I build fast, responsive, and modern websites that provide smooth user experiences.',},
+    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Building smooth, cross-platform apps for iOS and Android.',},
+    { icon: assets.ui_icon, title: 'UI/UX design', description: 'Crafting simple, modern designs that put the user first, ensuring engaging experiences.',},
+    { icon: assets.graphics_icon, title: 'Frontend Optimization', description: 'Making interfaces faster, smoother, and more efficient.', },
+    { icon: assets.component_icon, title: 'Component-Based Development', description: 'Building reusable, modular UI components to speed up development.', },
+    { icon: assets.api_icon, title: 'API Integration', description: 'Connecting the frontend with backend systems to fetch and display dynamic data.', },
 ]
 
 export const infoList = [
