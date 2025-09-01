@@ -115,7 +115,7 @@ export const workData = [
     },
     {
         title: 'Pyet Doktorrrin',
-        description: 'PyetDoktorrin is a web application for connecting patients with doctors for online consultations. I developed the front-end using React, implementing appointment booking and a responsive UI.',
+        description: 'PyetDoktorrin is a web application for connecting patients with doctors for online consultations. I developed the front-end using React, implementing  booking and responsive UI.',
         bgImage: '/work-3.png',
         link: 'https://www.pyetdoktorin.online/',
         technologies: ["React", "Tailwind"]
