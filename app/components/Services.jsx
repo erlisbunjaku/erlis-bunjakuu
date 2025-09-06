@@ -30,8 +30,7 @@ const Services = () => {
         transition={{ duration: 0.6 }}
         className="text-center max-w-2xl mx-auto mt-5 mb-12"
       >
-        I am a frontend developer from Vushtrri, Kosovo with 2 years of
-        experience.
+       With 2 years of experience in frontend development, I’ve successfully delivered projects that bring ideas to life.
       </motion.p>
 
       <motion.div

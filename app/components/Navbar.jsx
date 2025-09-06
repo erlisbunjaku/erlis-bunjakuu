@@ -32,8 +32,8 @@ const Navbar = () => {
       <nav
         className={`w-full fixed top-0 left-0 px-5 lg:px-8 xl:px-[8%] py-4   flex items-center justify-between z-50
            transition-all duration-300 ease-in-out ${
-    isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""
-  }`}
+             isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""
+           }`}
       >
         <a href="#top">
           <Image
@@ -45,11 +45,11 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <ul
-  className={`hidden md:flex items-center gap-6 lg:gap-8
+          className={`hidden md:flex items-center gap-6 lg:gap-8
     rounded-full px-12 py-3 bg-white bg-opacity-50 backdrop-blur-lg
       transition-shadow duration-300 ease-in-out
     ${!isScroll ? "shadow-[0_2px_6px_rgba(0,0,0,0.1)]" : ""}`}
->
+        >
           <li>
             <a href="#top">Home</a>
           </li>

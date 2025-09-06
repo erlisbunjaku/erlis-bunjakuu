@@ -41,7 +41,8 @@ import tailwind from './tailwind.svg';
 import react from './react.svg';
 import nextjs from './next.svg';
 import reactnative from './reactnative.png';
-
+import vitejs from './Vitejs-logo.svg.png';
+import vercel from './vercel.png';
 
 
 export const assets = {
@@ -87,8 +88,9 @@ export const assets = {
     right_arrow,
     send_icon,
     right_arrow_bold,
-    right_arrow_bold_dark
-    
+    right_arrow_bold_dark,
+    vitejs,
+    vercel,
 };
 
 export const techLogos = {
@@ -134,9 +136,9 @@ export const serviceData = [
 export const infoList = [
     { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Experience', description: 'Front-end Developer at Primeline.dev – 2 years and ongoing' },
     { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Ongoing education in software development & IT.' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built and deployed 5+ practical projects.' }
+    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Developed and deployed diverse, real-world projects.' }
 ];
 
 export const toolsData = [
-    assets.vscode, assets.tailwind, assets.github, assets.git, assets.expogo, assets.postman,
+    assets.vscode, assets.tailwind, assets.github, assets.git, assets.expogo, assets.postman, vitejs, vercel,
 ];

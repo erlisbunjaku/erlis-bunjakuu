@@ -51,7 +51,7 @@ const About = () => {
     I’m passionate about building responsive, user-friendly web and mobile apps
     with clean, maintainable code. I enjoy solving problems and working closely
     with teams to create great experiences. I adapt quickly, collaborate well,
-    and believe teamwork makes all the difference — whether tackling challenges,
+    and believe teamwork makes all the difference  whether tackling challenges,
     sharing ideas, or having fun. Super friendly and always open to connect or
     collaborate! 😁
   </motion.p>
@@ -99,7 +99,7 @@ const About = () => {
         whileHover={{ scale: 1.05 }}
         className="
           flex items-center justify-center
-          w-10 h-10 sm:w-12 sm:h-12
+          w-11 h-11 sm:w-12 sm:h-12
           border border-gray-200
           rounded-lg
           bg-white
