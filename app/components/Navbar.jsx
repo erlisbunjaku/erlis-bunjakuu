@@ -31,9 +31,8 @@ const Navbar = () => {
     <>
       <nav
         className={`w-full fixed top-0 left-0 px-5 lg:px-8 xl:px-[8%] py-4   flex items-center justify-between z-50
-           transition-all duration-300 ease-in-out ${
-             isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""
-           }`}
+           transition-all duration-300 ease-in-out ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""
+          }`}
       >
         <a href="#top">
           <Image
@@ -110,7 +109,7 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#about" onClick={closeMenu}>
-              Abotu me
+              About me
             </a>
           </li>
           <li>
