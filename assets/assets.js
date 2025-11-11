@@ -112,7 +112,7 @@ export const workData = [
         title: 'Shujtiza',
         description: 'Shujtiza is a food marketplace app built with Next.js and React Native, connecting users to leftover food at discounted prices. I developed both the web and mobile front-ends.',
         bgImage: '/work-2.png',
-        link: '#',
+        link: 'https://www.shujtiza.com/',
         technologies: ["React Native", "Next.js", "Tailwind"]
     },
     {
