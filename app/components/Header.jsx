@@ -53,7 +53,7 @@
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className='max-w-2xl mx-auto'>I am a Front-end Developer from Vushtrri, Kosovo, with 2 years of experience at  <br /><span className='text-[#0000c4]'><a target='_blank' href='https://www.instagram.com/primeline.dev/'>Primeline.dev</a></span>
+          className='max-w-2xl mx-auto'>I am a Front-end Developer from Vushtrri, Kosovo.
           </motion.p>
 
           <motion.div 
