@@ -130,11 +130,11 @@ export const serviceData = [
     { icon: assets.ui_icon, title: 'UI/UX design', description: 'Crafting simple, modern designs that put the user first, ensuring engaging experiences.',},
     { icon: assets.graphics_icon, title: 'Frontend Optimization', description: 'Making interfaces faster, smoother, and more efficient.', },
     { icon: assets.component_icon, title: 'Component-Based Development', description: 'Building reusable, modular UI components to speed up development.', },
-    { icon: assets.api_icon, title: 'API Integration', description: 'Connecting the fullstack with backend systems to fetch and display dynamic data.', },
+    { icon: assets.api_icon, title: 'API Integration', description: 'Connecting the frontend with backend systems to fetch and display dynamic data.', },
 ]
 
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Experience', description: 'Full-stack Developer at Primeline.dev – 1 year and 6 mo' },
+    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Experience', description: 'Front-end Developer at Primeline.dev – 1 year and 6 mo' },
     { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Ongoing education in software development & IT.' },
     { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Developed and deployed diverse, real-world projects.' }
 ];

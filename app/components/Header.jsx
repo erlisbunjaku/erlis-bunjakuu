@@ -48,12 +48,12 @@
           <motion.h1
           initial={{ y: -50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 120, duration: 0.8 }} className='text-3xl sm:text-6xl lg:text-[66px] font-Ovo'>Full-stack Developer based in Kosovo.</motion.h1>
+          transition={{ type: 'spring', stiffness: 120, duration: 0.8 }} className='text-3xl sm:text-6xl lg:text-[66px] font-Ovo'>frontend developer based in Kosovo.</motion.h1>
           <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className='max-w-2xl mx-auto'>I am a Full-stack Developer from Vushtrri, Kosovo.
+          className='max-w-2xl mx-auto'>I am a Front-end Developer from Vushtrri, Kosovo.
           </motion.p>
 
           <motion.div 
