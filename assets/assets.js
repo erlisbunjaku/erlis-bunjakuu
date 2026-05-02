@@ -43,6 +43,8 @@ import nextjs from './next.svg';
 import reactnative from './reactnative.png';
 import vitejs from './Vitejs-logo.svg.png';
 import vercel from './vercel.png';
+import python from './python.png'
+import django from './django.png'
 
 
 export const assets = {
@@ -91,6 +93,8 @@ export const assets = {
     right_arrow_bold_dark,
     vitejs,
     vercel,
+    python,
+    django,
 };
 
 export const techLogos = {
@@ -98,30 +102,33 @@ export const techLogos = {
   "Tailwind": assets.tailwind,
   "Next.js": assets.nextjs,
   "React Native": assets.reactnative,
+  "Python": assets.python,
+  "Django": assets.django
 }
 
 export const workData = [
+   {
+    title: 'Dollapi',
+    description: 'Dollapi is an e-commerce web application for clothing, built with React. I worked as part of a team where I contributed to the front-end development, implementing features such as product listings, shopping cart functionality, and a responsive user interface while collaborating to improve the overall user experience.',
+    bgImage: '/work-1.png',
+    link: 'https://dollapi.online/',
+    technologies: ["React", "Tailwind"],
+    disabled: true
+},
+   {
+    title: 'Shujtiza',
+    description: 'Shujtiza is a food marketplace platform that connects users with leftover food at discounted prices, helping reduce waste. I worked as part of a team where I contributed to both the web and mobile front-ends using Next.js and React Native, focusing on responsive design and improving the overall user experience while collaborating on key features.',
+    bgImage: '/work-2.png',
+    link: 'https://www.shujtiza.com/',
+    technologies: ["React Native", "Next.js", "Tailwind"]
+},
     {
-        title: 'Dollapi',
-        description: 'Dollapi is an e-commerce web app for clothing, built with React. I implemented the front-end, including product listings, shopping cart functionality, and a responsive design.',
-        bgImage: '/work-1.png',
-        link: 'https://dollapi.online/',
-        technologies: ["React", "Tailwind"]
-    },
-    {
-        title: 'Shujtiza',
-        description: 'Shujtiza is a food marketplace app built with Next.js and React Native, connecting users to leftover food at discounted prices. I developed both the web and mobile front-ends.',
-        bgImage: '/work-2.png',
-        link: 'https://www.shujtiza.com/',
-        technologies: ["React Native", "Next.js", "Tailwind"]
-    },
-    {
-        title: 'Pyet Doktorrrin',
-        description: 'PyetDoktorrin is a web application for connecting patients with doctors for online consultations. I developed the front-end using React, implementing  booking and responsive UI.',
-        bgImage: '/work-3.png',
-        link: 'https://www.pyetdoktorin.online/',
-        technologies: ["React", "Tailwind"]
-    },
+    title: 'Orari Im',
+    description: 'Orari Im is a web platform for managing appointments and schedules for businesses and clients. I worked as part of a team where I contributed to the front-end using Next.js, building a responsive UI and booking features, while also gaining initial backend experience with Python and Django as part of my ongoing full stack development journey.',
+    bgImage: '/work-3.png',
+    link: 'https://orari-im.online/',
+    technologies: ["Next.js", "Tailwind", "Python", "Django"]
+}
 ]
 
 export const serviceData = [
@@ -135,7 +142,7 @@ export const serviceData = [
 
 export const infoList = [
     { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Experience', description: 'Front-end Developer at Primeline.dev – 1 year and 6 mo' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Ongoing education in software development & IT.' },
+    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Ongoing education in Full Stack Development' },
     { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Developed and deployed diverse, real-world projects.' }
 ];
 

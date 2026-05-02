@@ -50,7 +50,7 @@ const Work = () => {
             transition={{ duration: 0.3, delay: index * 0.05 }}
             className="group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col"
           >
-            {/* Project Card */}
+            {/* Project Card Image Container */}
             <div className="relative overflow-hidden rounded-t-lg">
               <div
                 className="aspect-[3/2] bg-no-repeat bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
@@ -59,17 +59,24 @@ const Work = () => {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-t-lg">
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      className="bg-white/90 backdrop-blur-sm rounded-md p-2 shadow-sm hover:scale-105 transition"
-                    >
-                      <Image
-                        src={assets.send_icon}
-                        alt="view project"
-                        className="w-4 h-4"
-                      />
-                    </a>
+                    {project.disabled ? (
+                      <span className="bg-white/90 backdrop-blur-sm text-gray-500 text-xs font-semibold px-3 py-1 rounded-md shadow-sm">
+                        Offline
+                      </span>
+                    ) : (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white/90 backdrop-blur-sm rounded-md p-2 shadow-sm hover:scale-105 transition"
+                      >
+                        <Image
+                          src={assets.send_icon}
+                          alt="view project"
+                          className="w-4 h-4"
+                        />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -87,31 +94,31 @@ const Work = () => {
                 {project.description}
               </p>
 
-              {/* Tech Tags */}
+              {/* Tech Tags - Optimized with p-2.5 for better logo visibility */}
               <div className="flex flex-wrap gap-2 mt-2">
                 {Array.isArray(project.technologies) ? (
                   project.technologies.map((tech, i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-blue-100 shadow-sm hover:shadow-md transition-all duration-300 p-1"
+                      className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-blue-50 shadow-sm hover:shadow-md transition-all duration-300"
                       title={tech}
                     >
                       <Image
                         src={techLogos[tech]}
                         alt={tech}
-                        className="object-contain w-full h-full p-1"
+                        className="object-contain w-full h-full p-2.5"
                       />
                     </div>
                   ))
                 ) : (
                   <div
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 shadow-sm hover:shadow-md transition-all duration-300 p-1"
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 shadow-sm hover:shadow-md transition-all duration-300"
                     title={project.technologies}
                   >
                     <Image
                       src={techLogos[project.technologies]}
                       alt={project.technologies}
-                      className="object-contain w-full h-full p-1"
+                      className="object-contain w-full h-full p-2.5"
                     />
                   </div>
                 )}
@@ -121,17 +128,27 @@ const Work = () => {
             {/* Divider */}
             <hr className="border-gray-200 mt-3" />
 
-            {/* Visit Project Button */}
+            {/* Visit Project Button - Handles Disabled State */}
             <div className="p-3">
-              <a
-                href={project.link}
-                target="_blank"
-                className="block text-center text-xs font-medium text-white bg-black px-3 py-2 rounded-md shadow-sm 
-               hover:bg-white hover:text-black 
-               transition-colors duration-300"
-              >
-                Visit Project
-              </a>
+              {project.disabled ? (
+                <button
+                  disabled
+                  className="w-full text-center text-xs font-medium text-gray-400 bg-gray-100 px-3 py-2 rounded-md cursor-not-allowed border border-gray-200"
+                >
+                  Domain Expired
+                </button>
+              ) : (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center text-xs font-medium text-white bg-black px-3 py-2 rounded-md shadow-sm 
+                   hover:bg-white hover:text-black 
+                   transition-colors duration-300"
+                >
+                  Visit Project
+                </a>
+              )}
             </div>
           </motion.div>
         ))}
