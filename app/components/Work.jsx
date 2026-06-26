@@ -94,33 +94,37 @@ const Work = () => {
                 {project.description}
               </p>
 
-              {/* Tech Tags - Optimized with p-2.5 for better logo visibility */}
+              {/* Tech Tags - Guarded to prevent empty src paths */}
               <div className="flex flex-wrap gap-2 mt-2">
                 {Array.isArray(project.technologies) ? (
                   project.technologies.map((tech, i) => (
+                    techLogos[tech] ? (
+                      <div
+                        key={i}
+                        className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-blue-50 shadow-sm hover:shadow-md transition-all duration-300"
+                        title={tech}
+                      >
+                        <Image
+                          src={techLogos[tech]}
+                          alt={tech}
+                          className="object-contain w-full h-full p-2.6"
+                        />
+                      </div>
+                    ) : null
+                  ))
+                ) : (
+                  project.technologies && techLogos[project.technologies] ? (
                     <div
-                      key={i}
-                      className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-blue-50 shadow-sm hover:shadow-md transition-all duration-300"
-                      title={tech}
+                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 shadow-sm hover:shadow-md transition-all duration-300"
+                      title={project.technologies}
                     >
                       <Image
-                        src={techLogos[tech]}
-                        alt={tech}
+                        src={techLogos[project.technologies]}
+                        alt={project.technologies}
                         className="object-contain w-full h-full p-2.5"
                       />
                     </div>
-                  ))
-                ) : (
-                  <div
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 shadow-sm hover:shadow-md transition-all duration-300"
-                    title={project.technologies}
-                  >
-                    <Image
-                      src={techLogos[project.technologies]}
-                      alt={project.technologies}
-                      className="object-contain w-full h-full p-2.5"
-                    />
-                  </div>
+                  ) : null
                 )}
               </div>
             </div>
@@ -135,7 +139,7 @@ const Work = () => {
                   disabled
                   className="w-full text-center text-xs font-medium text-gray-400 bg-gray-100 px-3 py-2 rounded-md cursor-not-allowed border border-gray-200"
                 >
-                  Domain Expired
+                  Currently Not Available
                 </button>
               ) : (
                 <a

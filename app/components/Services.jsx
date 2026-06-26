@@ -15,6 +15,7 @@ const Services = () => {
       >
         What I offer
       </motion.h4>
+      
       <motion.h2
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -30,47 +31,47 @@ const Services = () => {
         transition={{ duration: 0.6 }}
         className="text-center max-w-2xl mx-auto mt-5 mb-12"
       >
-       With 1.6 years of experience in frontend development, I’ve successfully delivered projects that bring ideas to life.
+        With 1.6 years of experience building frontend interfaces, I bring ideas to life using digital tools, while currently broadening my scope with Python and Django.
       </motion.p>
 
+      {/* Changed to explicit responsive column layout */}
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-6 my-10"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10"
       >
-        {serviceData.map(({ icon, title, description,}, index) => (
-      <div
-  key={index}
-  className="
-    group
-    border border-gray-200 
-    rounded-2xl 
-    p-8 
-    bg-white 
-    shadow-sm 
-    hover:shadow-lg 
-    hover:border-purple-300
-    cursor-pointer 
-    transform 
-    hover:-translate-y-2 
-    transition-all 
-    duration-300
-  "
->
-  <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-purple-50 mb-6 group-hover:bg-purple-100 transition">
-    <Image alt="Services" src={icon} className="w-8 h-8 object-contain" />
-  </div>
+        {serviceData.map(({ icon, title, description }, index) => (
+          <div
+            key={index}
+            className="
+              group
+              border border-gray-200 
+              rounded-2xl 
+              p-8 
+              bg-white 
+              shadow-sm 
+              hover:shadow-lg 
+              hover:border-purple-300
+              cursor-pointer 
+              transform 
+              hover:-translate-y-2 
+              transition-all 
+              duration-300
+            "
+          >
+            <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-purple-50 mb-6 group-hover:bg-purple-100 transition">
+              <Image alt="Services" src={icon} className="w-8 h-8 object-contain" />
+            </div>
 
-  <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600 transition">
-    {title}
-  </h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600 transition">
+              {title}
+            </h3>
 
-  <p className="text-sm text-gray-600 leading-relaxed">
-    {description}
-  </p>
-</div>
-
+            <p className="text-sm text-gray-600 leading-relaxed">
+              {description}
+            </p>
+          </div>
         ))}
       </motion.div>
     </div>
