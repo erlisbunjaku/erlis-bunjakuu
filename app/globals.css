@@ -1,8 +1,299 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #050505;
+  --color-panel: #0c0c0c;
+  --color-raised: #121212;
+  --color-gold: #c9a227;
+  --color-gold-bright: #e8c547;
+  --color-gold-deep: #8a7030;
+  --color-cream: #f3ead6;
+  --color-stone: #9a8f78;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
 
+html {
+  scroll-behavior: smooth;
+}
 
 html,
 body {
   overflow-x: hidden;
+  background: #050505;
+  color: #f3ead6;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+a,
+button,
+summary,
+[role="button"],
+label {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor *:not(input):not(textarea):not(button):not(a):not([role="button"]) {
+    cursor: none !important;
+  }
+
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role="button"] {
+    cursor: pointer !important;
+  }
+}
+
+.page-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.atmosphere-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-shift {
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(rgba(201, 162, 39, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  animation: grid-drift 48s linear infinite;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.42;
+}
+
+.orb-a {
+  width: 42vw;
+  height: 42vw;
+  min-width: 280px;
+  min-height: 280px;
+  left: -8%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(232, 197, 71, 0.45), transparent 68%);
+  animation: orb-float-a 22s ease-in-out infinite;
+}
+
+.orb-b {
+  width: 36vw;
+  height: 36vw;
+  min-width: 240px;
+  min-height: 240px;
+  right: -6%;
+  top: 28%;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.38), transparent 70%);
+  animation: orb-float-b 28s ease-in-out infinite;
+}
+
+.orb-c {
+  width: 40vw;
+  height: 40vw;
+  min-width: 260px;
+  min-height: 260px;
+  left: 28%;
+  bottom: -12%;
+  background: radial-gradient(circle, rgba(138, 112, 48, 0.4), transparent 72%);
+  animation: orb-float-c 26s ease-in-out infinite;
+}
+
+.cursor-dot,
+.cursor-ring {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-dot,
+  .cursor-ring {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 250;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    background: #e8c547;
+    box-shadow: 0 0 12px rgba(232, 197, 71, 0.7);
+  }
+
+  .cursor-ring {
+    width: 36px;
+    height: 36px;
+    margin: -18px 0 0 -18px;
+    border: 1px solid rgba(201, 162, 39, 0.7);
+    transition: width 0.25s ease, height 0.25s ease, margin 0.25s ease, background 0.25s ease;
+  }
+
+  body.cursor-hot .cursor-ring {
+    width: 52px;
+    height: 52px;
+    margin: -26px 0 0 -26px;
+    background: rgba(201, 162, 39, 0.12);
+  }
+}
+
+@keyframes grid-drift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-72px, -72px, 0); }
+}
+
+@keyframes orb-float-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(10%, 8%, 0) scale(1.12); }
+}
+
+@keyframes orb-float-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-12%, -6%, 0) scale(1.18); }
+}
+
+@keyframes orb-float-c {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6%, -10%, 0) scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-shift,
+  .orb-a,
+  .orb-b,
+  .orb-c {
+    animation: none;
+  }
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: #c9a227;
+  color: #050505;
+}
+
+.site-wrap {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .site-wrap {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-wrap {
+    padding-inline: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-wrap {
+    padding-inline: 8%;
+  }
+}
+
+.gold-text {
+  color: #e8c547;
+  background-image: linear-gradient(180deg, #f5e6b8 0%, #c9a227 46%, #8a7030 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a227 20%, #e8c547 50%, #c9a227 80%, transparent);
+}
+
+.gold-btn {
+  background: linear-gradient(180deg, #e8c547 0%, #c9a227 52%, #8a7030 100%);
+  color: #050505;
+  cursor: pointer;
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.gold-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.panel {
+  background: rgba(12, 12, 12, 0.72);
+  border: 1px solid rgba(201, 162, 39, 0.22);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+.panel:hover {
+  border-color: rgba(201, 162, 39, 0.5);
+}
+
+.flame-bg {
+  background-image:
+    radial-gradient(ellipse 70% 50% at 80% 20%, rgba(201, 162, 39, 0.12), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(138, 112, 48, 0.1), transparent 55%);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: #c9a227;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
 }

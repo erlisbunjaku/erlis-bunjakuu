@@ -1,66 +1,49 @@
+"use client";
+
 import { assets, workData, techLogos } from "@/assets/assets";
-import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ease, fadeIn, fadeUp } from "@/app/lib/motion";
 
 const Work = () => {
   return (
-    <div id="work" className="w-full px-[8%] py-12 scroll-mt-20 mt-10">
-      {/* Section Header */}
-      <motion.h4
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 100 }}
-        className="text-center mb-1 text-lg tracking-wide text-black-800"
-      >
-        My Portfolio
-      </motion.h4>
-
-      <motion.h2
-        initial={{ scale: 0.95, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 120 }}
-        className="text-center text-5xl sm:text-4xl font-sm text-black-800"
-      >
-        My Latest Work
-      </motion.h2>
-
+    <section id="work" className="site-wrap py-20 sm:py-24 scroll-mt-24">
+      <div className="gold-rule mb-14" />
       <motion.p
-        initial={{ x: 40, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4 }}
-        className="text-center max-w-2xl mx-auto mt-3 mb-8 text-gray-600 text-sm"
+        {...fadeIn}
+        className="text-center font-[family-name:var(--font-geist-mono)] text-[11px] tracking-[0.32em] uppercase text-gold"
       >
-        A selection of my recent projects, showcasing skills in modern front-end
-        development.
+        Selected work
       </motion.p>
-
-      {/* Portfolio Grid */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      <motion.h2
+        {...fadeUp}
+        className="text-center text-4xl sm:text-5xl font-[family-name:var(--font-syne)] font-semibold mt-3"
       >
+        Projects
+      </motion.h2>
+      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 text-stone leading-relaxed">
+        Client platforms and product builds.
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         {workData.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ y: 30, opacity: 0 }}
+          <motion.article
+            key={project.title}
+            initial={{ y: 24, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            className="group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.55, delay: Math.min(index * 0.05, 0.3), ease }}
+            className="group panel flex flex-col overflow-hidden cursor-pointer"
           >
-            {/* Project Card Image Container */}
-            <div className="relative overflow-hidden rounded-t-lg">
+            <div className="relative overflow-hidden">
               <div
-                className="aspect-[3/2] bg-no-repeat bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                className="aspect-[3/2] bg-no-repeat bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
                 style={{ backgroundImage: `url(${project.bgImage})` }}
               >
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-t-lg">
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/40 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {project.disabled ? (
-                      <span className="bg-white/90 backdrop-blur-sm text-gray-500 text-xs font-semibold px-3 py-1 rounded-md shadow-sm">
+                      <span className="bg-ink/90 text-stone text-xs tracking-wide px-3 py-1 border border-gold/20">
                         Offline
                       </span>
                     ) : (
@@ -68,11 +51,12 @@ const Work = () => {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white/90 backdrop-blur-sm rounded-md p-2 shadow-sm hover:scale-105 transition"
+                        aria-label={`Open ${project.title}`}
+                        className="inline-flex items-center justify-center w-10 h-10 bg-gold text-ink"
                       >
                         <Image
                           src={assets.send_icon}
-                          alt="view project"
+                          alt=""
                           className="w-4 h-4"
                         />
                       </a>
@@ -82,82 +66,56 @@ const Work = () => {
               </div>
             </div>
 
-            {/* Divider */}
-            <hr className="border-gray-200 my-2" />
-
-            {/* Project Info */}
-            <div className="px-3 flex-1 flex flex-col">
-              <h3 className="text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+            <div className="px-5 pt-5 flex-1 flex flex-col">
+              <h3 className="font-[family-name:var(--font-syne)] text-xl text-cream group-hover:text-gold transition-colors duration-300">
                 {project.title}
               </h3>
-              <p className="text-gray-600 text-sm mt-1">
+              <p className="text-stone text-sm mt-2 leading-relaxed">
                 {project.description}
               </p>
-
-              {/* Tech Tags - Guarded to prevent empty src paths */}
-              <div className="flex flex-wrap gap-2 mt-2">
-                {Array.isArray(project.technologies) ? (
-                  project.technologies.map((tech, i) => (
+              <div className="flex flex-wrap gap-2 mt-4">
+                {Array.isArray(project.technologies) &&
+                  project.technologies.map((tech) =>
                     techLogos[tech] ? (
                       <div
-                        key={i}
-                        className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-blue-50 shadow-sm hover:shadow-md transition-all duration-300"
+                        key={tech}
+                        className="w-9 h-9 flex items-center justify-center bg-raised border border-gold/15"
                         title={tech}
                       >
                         <Image
                           src={techLogos[tech]}
                           alt={tech}
-                          className="object-contain w-full h-full p-2.6"
+                          className="object-contain w-full h-full p-1.5"
                         />
                       </div>
                     ) : null
-                  ))
-                ) : (
-                  project.technologies && techLogos[project.technologies] ? (
-                    <div
-                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 shadow-sm hover:shadow-md transition-all duration-300"
-                      title={project.technologies}
-                    >
-                      <Image
-                        src={techLogos[project.technologies]}
-                        alt={project.technologies}
-                        className="object-contain w-full h-full p-2.5"
-                      />
-                    </div>
-                  ) : null
-                )}
+                  )}
               </div>
             </div>
 
-            {/* Divider */}
-            <hr className="border-gray-200 mt-3" />
-
-            {/* Visit Project Button - Handles Disabled State */}
-            <div className="p-3">
+            <div className="p-5 pt-4 mt-auto">
               {project.disabled ? (
                 <button
                   disabled
-                  className="w-full text-center text-xs font-medium text-gray-400 bg-gray-100 px-3 py-2 rounded-md cursor-not-allowed border border-gray-200"
+                  className="w-full text-center text-xs tracking-wide text-stone bg-raised px-3 py-2.5 border border-gold/10 cursor-not-allowed"
                 >
-                  Currently Not Available
+                  Currently not available
                 </button>
               ) : (
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-center text-xs font-medium text-white bg-black px-3 py-2 rounded-md shadow-sm 
-                   hover:bg-white hover:text-black 
-                   transition-colors duration-300"
+                  className="block text-center text-xs tracking-[0.16em] uppercase font-[family-name:var(--font-geist-mono)] text-ink gold-btn px-3 py-2.5 cursor-pointer"
                 >
-                  Visit Project
+                  Visit project
                 </a>
               )}
             </div>
-          </motion.div>
+          </motion.article>
         ))}
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };
 

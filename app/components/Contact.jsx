@@ -1,8 +1,9 @@
-import { assets } from "@/assets/assets";
+"use client";
+
 import { useState, useRef } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { fadeIn, fadeUp } from "@/app/lib/motion";
 
 const Contact = () => {
   const [result, setResult] = useState("");
@@ -16,14 +17,14 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_hvjkyqe",    
-        "template_vgoie1j",   
+        "service_hvjkyqe",
+        "template_vgoie1j",
         formRef.current,
-        "ktzDfW8JnYUXzToi7"    
+        "ktzDfW8JnYUXzToi7"
       )
       .then(
         () => {
-          setResult("Message sent successfully");
+          setResult("Message sent.");
           formRef.current.reset();
         },
         (error) => {
@@ -34,70 +35,63 @@ const Contact = () => {
   };
 
   return (
-    <div
-      id="contact"
-      className='w-full px-[12%] py-10 scroll-mt-20 bg-[url("/footer-bg-color.png")] bg-no-repeat bg-center bg-[length:90%_auto] mt-20'
-    >
-      <motion.h4
-        initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-2 text-lg"
+    <section id="contact" className="site-wrap py-20 sm:py-24 scroll-mt-24">
+      <div className="gold-rule mb-14" />
+      <motion.p
+        {...fadeIn}
+        className="text-center font-[family-name:var(--font-geist-mono)] text-[11px] tracking-[0.32em] uppercase text-gold"
       >
-        Connect with me
-      </motion.h4>
-
+        Contact
+      </motion.p>
       <motion.h2
-        initial={{ y: -50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 100 }}
-        className="text-center text-5xl"
+        {...fadeUp}
+        className="text-center text-4xl sm:text-5xl font-[family-name:var(--font-syne)] font-semibold mt-3"
       >
         Get in touch
       </motion.h2>
-
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12">
-        I'd love to hear from you! If you have any questions, comments, or
-        feedback, please use the form below.
+      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 text-stone leading-relaxed">
+        For work or questions, write below.
       </p>
 
       <form ref={formRef} onSubmit={onSubmit} className="max-w-2xl mx-auto">
-        <div className="grid [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))] gap-6 mt-10 mb-8">
+        <div className="grid sm:grid-cols-2 gap-5 mb-5">
           <input
             type="text"
-            placeholder="Enter your full name"
+            placeholder="Full name"
             required
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
+            className="w-full p-3.5 outline-none border border-gold/25 bg-panel text-cream placeholder:text-stone/70 focus:border-gold transition-colors duration-300"
             name="name"
           />
           <input
             type="email"
-            placeholder="Enter your email"
+            placeholder="Email"
             required
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
+            className="w-full p-3.5 outline-none border border-gold/25 bg-panel text-cream placeholder:text-stone/70 focus:border-gold transition-colors duration-300"
             name="email"
           />
         </div>
 
         <textarea
           rows="6"
-          placeholder="Enter your message"
+          placeholder="Message"
           required
-          className="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6"
+          className="w-full p-4 outline-none border border-gold/25 bg-panel text-cream placeholder:text-stone/70 focus:border-gold mb-6 transition-colors duration-300"
           name="message"
         ></textarea>
 
         <button
           type="submit"
-          className="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 cursor-pointer"
+          className="gold-btn py-3 px-8 w-max flex items-center gap-2 mx-auto text-sm font-semibold tracking-wide cursor-pointer"
         >
           Send message
-          <Image src={assets.right_arrow_white} alt="arrow" className="w-4" />
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
         </button>
 
-        <p className="mt-3 text-center">{result}</p>
+        <p className="mt-4 text-center text-sm text-gold">{result}</p>
       </form>
-    </div>
+    </section>
   );
 };
 

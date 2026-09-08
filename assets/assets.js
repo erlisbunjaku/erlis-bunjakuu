@@ -1,4 +1,4 @@
-import user_image from './user-image.png';
+import user_image from './portrait.png';
 import code_icon from './code-icon.png';
 import code_icon_dark from './code-icon-dark.png';
 import edu_icon from './edu-icon.png';
@@ -8,14 +8,15 @@ import project_icon_dark from './project-icon-dark.png';
 import vscode from './vscode.png';
 import expogo from './expogo.png';
 import git from './git.png';
-import github from './github.png';
-import postman from './postman.png'
+import github from './github-clean.png';
+import postman from './postman-clean.png'
+import databricks from './databricks-icon.png'
 import right_arrow_white from './right-arrow-white.png';
 import logo from './logo.png';
 import logo_dark from './logo_dark.png';
 import mail_icon from './mail_icon.png';
 import mail_icon_dark from './mail_icon_dark.png';
-import profile_img from './profile-img.png';
+import profile_img from './portrait.png';
 import download_icon from './download-icon.png';
 import hand_icon from './hand-icon.png';
 import header_bg_color from './header-bg-color.png';
@@ -51,6 +52,9 @@ import js from './javascript.png'
 import firebase from './firebase.png'
 import wordpres from './wordpess.png'
 import php from './php.png'
+import agilyti_logo from './agilyti-logo.png'
+import unity_logo from './unity-tech-hub.png'
+import primeline_logo from './primeline.png'
 
 
 
@@ -71,6 +75,7 @@ export const assets = {
     git,
     github,
     postman,
+    databricks,
     right_arrow_white,
     logo,
     logo_dark,
@@ -108,6 +113,9 @@ export const assets = {
     firebase,
     wordpres,
     php,
+    agilyti_logo,
+    unity_logo,
+    primeline_logo,
 };
 
 export const techLogos = {
@@ -208,43 +216,75 @@ export const workData = [
 ];
 
 export const serviceData = [
-  { 
-    icon: assets.web_icon, 
-    title: 'Web Applications', 
-    description: 'Developing high-performance, dynamic web applications tailored for seamless user interaction.' 
+  {
+    index: '01',
+    title: 'Software Engineering',
+    description: 'JavaScript, TypeScript, and React for interfaces and application logic.'
   },
-  { 
-    icon: assets.mobile_icon, 
-    title: 'Mobile Development', 
-    description: 'Building smooth, cross-platform mobile apps for iOS and Android using modern frameworks.' 
+  {
+    index: '02',
+    title: 'Data Engineering',
+    description: 'Python, SQL, and Databricks for pipelines, modeling, and analysis.'
   },
-  { 
-    icon: assets.ui_icon, 
-    title: 'UI/UX Implementation', 
-    description: 'Translating complex design concepts into pixel-perfect, clean, and highly interactive interfaces.' 
+  {
+    index: '03',
+    title: 'Applied AI',
+    description: 'AI on top of real data and software systems — built to ship.'
   },
-  { 
-    icon: assets.graphics_icon, 
-    title: 'Performance Optimization', 
-    description: 'Optimizing web vitals, enhancing load speeds, and ensuring smooth rendering across all devices.' 
-  },
-  { 
-    icon: assets.component_icon, 
-    title: 'Scalable Architecture', 
-    description: 'Structuring projects with clean, reusable architecture and modular components for long-term growth.' 
-  },
-  { 
-    icon: assets.api_icon, 
-    title: 'Full-Stack Integration', 
-    description: 'Connecting polished client-side interfaces with robust server-side logic and database systems.' 
+  {
+    index: '04',
+    title: 'Frontend Systems',
+    description: 'Client platforms and product UI from my time as a frontend developer at PrimeLine.'
   },
 ]
+
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Experience', description: 'Front-end Developer at Primeline.dev – 1 year and 6 months' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Ongoing education in Full Stack Development' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Developed and deployed diverse, real-world projects.' }
+    { title: 'Role', description: 'Data & AI Associate, Engineering' },
+    { title: 'Company', description: 'Agilyti' },
+    { title: 'Location', description: 'Vushtrri, Kosovo' }
+];
+
+export const pathData = [
+  {
+    period: 'Now',
+    org: 'Agilyti',
+    role: 'Data & AI Associate, Engineering',
+    detail: 'Python, SQL, TypeScript, React, and Databricks.',
+    logo: 'agilyti',
+  },
+  {
+    period: 'Program',
+    org: 'Unity Tech Hub',
+    role: 'Software · Data · AI',
+    detail: 'Software engineering, data engineering, and AI.',
+    logo: 'unity',
+  },
+  {
+    period: 'Prior',
+    org: 'PrimeLine',
+    role: 'Frontend Developer',
+    detail: 'Client platforms and product UI for a year and a half.',
+    logo: 'primeline',
+  }
+];
+
+export const stackData = [
+  { name: 'Python', layer: 'Engineering' },
+  { name: 'SQL', layer: 'Data' },
+  { name: 'TypeScript', layer: 'Engineering' },
+  { name: 'JavaScript', layer: 'Engineering' },
+  { name: 'React', layer: 'Engineering' },
+  { name: 'Databricks', layer: 'Data & AI' },
 ];
 
 export const toolsData = [
-    assets.vscode, assets.tailwind, assets.github, assets.git, assets.expogo, assets.postman, vitejs, vercel,
+    assets.vscode,
+    assets.tailwind,
+    assets.github,
+    assets.git,
+    assets.expogo,
+    assets.postman,
+    assets.databricks,
+    vitejs,
+    vercel,
 ];
